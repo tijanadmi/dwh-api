@@ -160,6 +160,23 @@ type Outage struct {
 	Tekst         string `json:"tekst"`
 }
 
+type Iskljucenja struct {
+	Datizv        string `json:"datizv"`
+	Vrepoc        string `json:"vrepoc"`
+	Vrezav        string `json:"vrezav"`
+	Traj          string `json:"trajanje"`
+	IpsId         string `json:"ips_id"`
+	TipOb         string `json:"tipob"`
+	Opis          string `json:"opis"`
+	ImeDalekovoda string `json:"ime_dalekovoda"`
+	PoljeTrafo    string `json:"polje_trafo"`
+	Org1          string `json:"org1"`
+	Org2          string `json:"org2"`
+	Nazvrpd       string `json:"nazvrpd"`
+	Razlog        string `json:"razlog"`
+	Tekst         string `json:"tekst"`
+}
+
 // User is the type for users
 type User struct {
 	ID       int
