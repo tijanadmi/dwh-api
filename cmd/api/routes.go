@@ -15,7 +15,7 @@ import (
 }*/
 
 func (app *application) routes() http.Handler {
-	
+
 	// create a router mux
 	mux := chi.NewRouter()
 
@@ -30,6 +30,10 @@ func (app *application) routes() http.Handler {
 	mux.Get("/weather/{year}", app.getWeather)
 	mux.Get("/weather_forecast", app.getWeatherForecast)
 	mux.Get("/weather_history/{year}", app.getWeatherHistory)
+	mux.Get("/dozvole_1/{year}", app.getPermissions1)
+	mux.Get("/dozvole_2_3/{year}", app.getPermissions23)
+	mux.Get("/zahtevi_1/{year}", app.getRequests1)
+	mux.Get("/zahtevi_2_3/{year}", app.getRequests23)
 
 	mux.Route("/admin", func(mux chi.Router) {
 		mux.Use(app.authRequired)

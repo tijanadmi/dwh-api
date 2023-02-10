@@ -53,6 +53,66 @@ func (app *application) getWeatherHistory(w http.ResponseWriter, r *http.Request
 	}
 }
 
+func (app *application) getPermissions1(w http.ResponseWriter, r *http.Request) {
+	year := chi.URLParam(r, "year")
+
+	weatherData, err := app.DB.GetPermissions1(year)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
+	err = app.writeJSON(w, http.StatusOK, weatherData)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
+}
+
+func (app *application) getPermissions23(w http.ResponseWriter, r *http.Request) {
+	year := chi.URLParam(r, "year")
+
+	weatherData, err := app.DB.GetPermissions23(year)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
+	err = app.writeJSON(w, http.StatusOK, weatherData)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
+}
+
+func (app *application) getRequests1(w http.ResponseWriter, r *http.Request) {
+	year := chi.URLParam(r, "year")
+
+	weatherData, err := app.DB.GetRequests1(year)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
+	err = app.writeJSON(w, http.StatusOK, weatherData)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
+}
+
+func (app *application) getRequests23(w http.ResponseWriter, r *http.Request) {
+	year := chi.URLParam(r, "year")
+
+	weatherData, err := app.DB.GetRequests23(year)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
+	err = app.writeJSON(w, http.StatusOK, weatherData)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
+}
+
 /**************** the another method ***********/
 func (app *application) authenticate(w http.ResponseWriter, r *http.Request) {
 	// read json payload
