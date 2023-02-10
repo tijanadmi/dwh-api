@@ -142,7 +142,7 @@ type Request struct {
 	IskOdobrio string `json:"isk_odobrio"`
 }
 
-type Failure struct {
+type Outage struct {
 	Datizv        string `json:"datizv"`
 	Vrepoc        string `json:"vrepoc"`
 	Vrezav        string `json:"vrezav"`
