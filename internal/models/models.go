@@ -160,7 +160,7 @@ type Outage struct {
 	Tekst         string `json:"tekst"`
 }
 
-type Iskljucenja struct {
+type Iskljucenje struct {
 	Datizv        string `json:"datizv"`
 	Vrepoc        string `json:"vrepoc"`
 	Vrezav        string `json:"vrezav"`
