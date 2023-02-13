@@ -113,6 +113,51 @@ func (app *application) getRequests23(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func (app *application) getOutages(w http.ResponseWriter, r *http.Request) {
+	year := chi.URLParam(r, "year")
+
+	weatherData, err := app.DB.GetOutages(year)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
+	err = app.writeJSON(w, http.StatusOK, weatherData)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
+}
+
+func (app *application) getDisconnectors(w http.ResponseWriter, r *http.Request) {
+	year := chi.URLParam(r, "year")
+
+	weatherData, err := app.DB.GetDisconnections(year)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
+	err = app.writeJSON(w, http.StatusOK, weatherData)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
+}
+
+func (app *application) getPlans(w http.ResponseWriter, r *http.Request) {
+	year := chi.URLParam(r, "year")
+
+	weatherData, err := app.DB.GetPlans(year)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
+	err = app.writeJSON(w, http.StatusOK, weatherData)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
+}
+
 /**************** the another method ***********/
 func (app *application) authenticate(w http.ResponseWriter, r *http.Request) {
 	// read json payload

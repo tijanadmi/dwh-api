@@ -17,4 +17,7 @@ type DatabaseRepo interface {
 	GetPermissions23(year string) ([]*models.Permission, error)
 	GetRequests1(year string) ([]*models.Request, error)
 	GetRequests23(year string) ([]*models.Request, error)
+	GetOutages(year string) ([]*models.Outage, error)
+	GetDisconnections(year string) ([]*models.Disconnection, error)
+	GetPlans(year string) ([]*models.Plan, error)
 }

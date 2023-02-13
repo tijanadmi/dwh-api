@@ -27,18 +27,30 @@ func (app *application) routes() http.Handler {
 	mux.Get("/logout", app.logout)
 
 	mux.Get("/status", app.statusHandler)
-	mux.Get("/weather/{year}", app.getWeather)
-	mux.Get("/weather_forecast", app.getWeatherForecast)
-	mux.Get("/weather_history/{year}", app.getWeatherHistory)
-	mux.Get("/dozvole_1/{year}", app.getPermissions1)
-	mux.Get("/dozvole_2_3/{year}", app.getPermissions23)
-	mux.Get("/zahtevi_1/{year}", app.getRequests1)
-	mux.Get("/zahtevi_2_3/{year}", app.getRequests23)
+	// mux.Get("/weather/{year}", app.getWeather)
+	// mux.Get("/weather_forecast", app.getWeatherForecast)
+	// mux.Get("/weather_history/{year}", app.getWeatherHistory)
+	// mux.Get("/dozvole_1/{year}", app.getPermissions1)
+	// mux.Get("/dozvole_2_3/{year}", app.getPermissions23)
+	// mux.Get("/zahtevi_1/{year}", app.getRequests1)
+	// mux.Get("/zahtevi_2_3/{year}", app.getRequests23)
+	// mux.Get("/ispadi/{year}", app.getOutages)
+	// mux.Get("/iskljucenja/{year}", app.getDisconnectors)
+	// mux.Get("/planovi/{year}", app.getPlans)
 
 	mux.Route("/admin", func(mux chi.Router) {
 		mux.Use(app.authRequired)
 
-		mux.Get("/weather", app.getWeather)
+		mux.Get("/weather/{year}", app.getWeather)
+		mux.Get("/weather_forecast", app.getWeatherForecast)
+		mux.Get("/weather_history/{year}", app.getWeatherHistory)
+		mux.Get("/dozvole_1/{year}", app.getPermissions1)
+		mux.Get("/dozvole_2_3/{year}", app.getPermissions23)
+		mux.Get("/zahtevi_1/{year}", app.getRequests1)
+		mux.Get("/zahtevi_2_3/{year}", app.getRequests23)
+		mux.Get("/ispadi/{year}", app.getOutages)
+		mux.Get("/iskljucenja/{year}", app.getDisconnectors)
+		mux.Get("/planovi/{year}", app.getPlans)
 
 	})
 

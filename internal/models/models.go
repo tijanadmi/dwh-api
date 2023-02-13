@@ -1,7 +1,6 @@
 package models
 
 import (
-	"database/sql"
 	"errors"
 
 	"golang.org/x/crypto/bcrypt"
@@ -54,42 +53,42 @@ type WeatherData struct {
 }
 
 type WeatherDataHistory struct {
-	Name                     string          `json:"name"`
-	Latitude                 float64         `json:"latitude"`
-	Longitude                float64         `json:"longitude"`
-	Height                   int             `json:"height"`
-	TimezoneAbbrevation      string          `json:"timezone_abbrevation"`
-	UtcTimeoffset            float64         `json:"utc_timeoffset"`
-	ModelrunUtc              string          `json:"modelrun_utc"`
-	ModelrunUpdatetimeUtc    string          `json:"modelrun_updatetime_utc"`
-	Time                     string          `json:"time"`
-	Pictocode                sql.NullFloat64 `json:"pictocode"`
-	Uvindex                  sql.NullFloat64 `json:"uvindex"`
-	TemperatureMax           sql.NullFloat64 `json:"temperature_max"`
-	TemperatureMin           sql.NullFloat64 `json:"temperature_min"`
-	TemperatureMean          sql.NullFloat64 `json:"temperature_mean"`
-	FelttemperatureMax       sql.NullFloat64 `json:"felttemperature_max"`
-	FelttemperatureMin       sql.NullFloat64 `json:"felttemperature_min"`
-	Winddirection            sql.NullFloat64 `json:"winddirection"`
-	PrecipitationProbability sql.NullFloat64 `json:"precipitation_probability"`
-	Rainspot                 string          `json:"rainspot"`
-	PredictabilityClass      sql.NullFloat64 `json:"predictability_class"`
-	Predictability           sql.NullFloat64 `json:"predictability"`
-	Precipitation            sql.NullFloat64 `json:"precipitation"`
-	Snowfraction             sql.NullFloat64 `json:"snowfraction"`
-	SealevelpressureMax      sql.NullFloat64 `json:"sealevelpressure_max"`
-	SealevelpressureMin      sql.NullFloat64 `json:"sealevelpressure_min"`
-	SealevelpressureMean     sql.NullFloat64 `json:"sealevelpressure_mean"`
-	WindspeedMax             sql.NullFloat64 `json:"windspeed_max"`
-	WindspeedMean            sql.NullFloat64 `json:"windspeed_mean"`
-	WindspeedMin             sql.NullFloat64 `json:"windspeed_min"`
-	RelativehumidityMax      sql.NullFloat64 `json:"relativehumidity_max"`
-	RelativehumidityMin      sql.NullFloat64 `json:"relativehumidity_min"`
-	RelativehumidityMean     sql.NullFloat64 `json:"relativehumidity_mean"`
-	ConvectivePrecipitation  sql.NullFloat64 `json:"convective_precipitation"`
-	PrecipitationHours       sql.NullFloat64 `json:"precipitation_hours"`
-	Humiditygreater90Hours   sql.NullFloat64 `json:"humiditygreater90_hours"`
-	CreationDate             string          `json:"creation_date"`
+	Name                     string  `json:"name"`
+	Latitude                 float64 `json:"latitude"`
+	Longitude                float64 `json:"longitude"`
+	Height                   int     `json:"height"`
+	TimezoneAbbrevation      string  `json:"timezone_abbrevation"`
+	UtcTimeoffset            float64 `json:"utc_timeoffset"`
+	ModelrunUtc              string  `json:"modelrun_utc"`
+	ModelrunUpdatetimeUtc    string  `json:"modelrun_updatetime_utc"`
+	Time                     string  `json:"time"`
+	Pictocode                string  `json:"pictocode"`
+	Uvindex                  string  `json:"uvindex"`
+	TemperatureMax           string  `json:"temperature_max"`
+	TemperatureMin           string  `json:"temperature_min"`
+	TemperatureMean          string  `json:"temperature_mean"`
+	FelttemperatureMax       string  `json:"felttemperature_max"`
+	FelttemperatureMin       string  `json:"felttemperature_min"`
+	Winddirection            string  `json:"winddirection"`
+	PrecipitationProbability string  `json:"precipitation_probability"`
+	Rainspot                 string  `json:"rainspot"`
+	PredictabilityClass      string  `json:"predictability_class"`
+	Predictability           string  `json:"predictability"`
+	Precipitation            string  `json:"precipitation"`
+	Snowfraction             string  `json:"snowfraction"`
+	SealevelpressureMax      string  `json:"sealevelpressure_max"`
+	SealevelpressureMin      string  `json:"sealevelpressure_min"`
+	SealevelpressureMean     string  `json:"sealevelpressure_mean"`
+	WindspeedMax             string  `json:"windspeed_max"`
+	WindspeedMean            string  `json:"windspeed_mean"`
+	WindspeedMin             string  `json:"windspeed_min"`
+	RelativehumidityMax      string  `json:"relativehumidity_max"`
+	RelativehumidityMin      string  `json:"relativehumidity_min"`
+	RelativehumidityMean     string  `json:"relativehumidity_mean"`
+	ConvectivePrecipitation  string  `json:"convective_precipitation"`
+	PrecipitationHours       string  `json:"precipitation_hours"`
+	Humiditygreater90Hours   string  `json:"humiditygreater90_hours"`
+	CreationDate             string  `json:"creation_date"`
 }
 
 type Permission struct {
@@ -158,9 +157,11 @@ type Outage struct {
 	Uzrok         string `json:"uzrok"`
 	VrmUsl        string `json:"vrm_usl"`
 	Tekst         string `json:"tekst"`
+	IdStavke      string `json:"id_stavke"`
+	IdSeq         string `json:"id_seq"`
 }
 
-type Iskljucenje struct {
+type Disconnection struct {
 	Datizv        string `json:"datizv"`
 	Vrepoc        string `json:"vrepoc"`
 	Vrezav        string `json:"vrezav"`
@@ -175,6 +176,20 @@ type Iskljucenje struct {
 	Nazvrpd       string `json:"nazvrpd"`
 	Razlog        string `json:"razlog"`
 	Tekst         string `json:"tekst"`
+}
+
+type Plan struct {
+	IdPogOdr  string `json:"pog_odr_id"`
+	IdSapFLok string `json:"sap_id"`
+	IdIPSFLok string `json:"ips_id"`
+	Opis      string `json:"opis"`
+	IdPogPlan string `json:"id_pog_plan"`
+	PlOdr     string `json:"pl_odr"`
+	TksStOd   string `json:"tks_st_od"`
+	TipNaloga string `json:"tip_naloga"`
+	DatumPoc  string `json:"datum_poc"`
+	DatumZav  string `json:"datum_zav"`
+	Id        string `json:"id"`
 }
 
 // User is the type for users
